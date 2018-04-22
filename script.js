@@ -1,11 +1,18 @@
+function getTextContent(el) {
+    return document.querySelector(el) ? document.querySelector(el).textContent : '';
+}
+
 /* build filename */
-let filename = document.querySelector(".jp-title").textContent;
-const username = document.querySelector("[href*='soundgasm.net/u/']").textContent; // username field has no identifiers - find based on link itself
+let filename = getTextContent(".jp-title");
+const username = getTextContent("[href*='soundgasm.net/u/']"); // username field has no identifiers - find based on link itself
 
 if ((filename + username).length > 150) {
     filename = filename.slice(0, 147 - username.length) + '...'; // trim long filenames
 }
-filename += ` by ${username}.m4a`;
+if (username) {
+    filename += ` by ${username}`;
+}
+filename += '.m4a';
 
 /* create download button */
 const downloadButton = document.createElement('a');
