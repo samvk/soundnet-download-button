@@ -15,16 +15,13 @@ if (username) {
 filename += '.m4a';
 
 /* create download button */
-const downloadButton = document.createElement('a');
-downloadButton.setAttribute('download', filename);
-downloadButton.innerHTML += "<u class='fa fa-download'></u> Download";
-
 // listen for src added to jPlayer to enable button
 const observer = new MutationObserver((_, self) => {
     const src = document.querySelector("#jp_audio_0").src;
     if (src) {
-        downloadButton.setAttribute('href', src);
-        document.querySelector('.jp-type-single').appendChild(downloadButton);
+        const downloadNode = `<div class='jp-download'><a href='${src}' download='${filename}'><span class='fa fa-download'></span>Download</a><div>`;
+        document.querySelector('.jp-type-single').insertAdjacentHTML('beforeend', downloadNode);
+
         self.disconnect();
     }
 });
