@@ -1,7 +1,7 @@
 {
   "name": "Soundgasm download button",
   "manifest_version": 2,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add a download button to soundgasm.net audio files.",
   "author": "Sam Kauffman (SamVK)",
   "icons": {

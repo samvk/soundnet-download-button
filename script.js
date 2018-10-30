@@ -2,6 +2,10 @@ function getTextContent(el) {
     return document.querySelector(el) ? document.querySelector(el).textContent : '';
 }
 
+function escapeHtml(text) {
+    return text.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+}
+
 /* build filename */
 let filename = getTextContent(".jp-title");
 const username = getTextContent("[href*='soundgasm.net/u/']"); // username field has no identifiers - find based on link itself
@@ -19,7 +23,7 @@ filename += '.m4a';
 const observer = new MutationObserver((_, self) => {
     const src = document.querySelector("#jp_audio_0").src;
     if (src) {
-        const downloadNode = `<div class='jp-download'><a href='${src}' download='${filename}'><span class='fa fa-download'></span>Download</a><div>`;
+        const downloadNode = `<div class='jp-download'><a href='${escapeHtml(src)}' download='${escapeHtml(filename)}'><span class='fa fa-download'></span>Download</a><div>`;
         document.querySelector('.jp-type-single').insertAdjacentHTML('beforeend', downloadNode);
 
         self.disconnect();
