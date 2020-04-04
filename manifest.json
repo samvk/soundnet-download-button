@@ -1,7 +1,7 @@
 {
   "name": "Soundgasm download button",
   "manifest_version": 2,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Add a download button to soundgasm.net audio files.",
   "author": "Sam Kauffman (SamVK)",
   "icons": {
@@ -10,7 +10,7 @@
       "128": "img/icon/icon-128.png"
   },
   "content_scripts": [{
-      "matches": [ "https://soundgasm.net/u/*/*" ],
+      "matches": [ "https://*.soundgasm.net/u/*/*" ],
       "css": [ "style.css" ],
       "js": [ "script.js" ]
     }]
