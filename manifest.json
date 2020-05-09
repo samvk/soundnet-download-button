@@ -13,5 +13,9 @@
       "matches": [ "https://*.soundgasm.net/u/*/*" ],
       "css": [ "style.css" ],
       "js": [ "script.js" ]
+    }, {
+      "matches": [ "https://media.soundgasm.net/sounds/*" ],
+      "css": [ "media.css" ],
+      "js": [ "media.js" ]
     }]
 }
