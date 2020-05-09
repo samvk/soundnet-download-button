@@ -21,7 +21,7 @@ filename += '.m4a';
 /* create download button */
 // listen for src added to jPlayer to enable button
 const observer = new MutationObserver((_, self) => {
-    const src = document.querySelector("#jp_audio_0").src.split('soundgasm.net').pop(); // only grab relative path
+    const src = document.querySelector("#jp_audio_0").src;
     if (src) {
         const downloadNode = `<div class='jp-download'><a href='${escapeHtml(src)}' download='${escapeHtml(filename)}'><span class='fa fa-download'></span>Download</a><div>`;
         document.querySelector('.jp-type-single').insertAdjacentHTML('beforeend', downloadNode);
