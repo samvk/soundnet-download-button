@@ -10,6 +10,8 @@ function escapeHtml(text) {
 let filename = getTextContent(".jp-title");
 const username = getTextContent("[href*='soundgasm.net/u/']"); // username field has no identifiers - find based on link itself
 
+filename = filename.replace(/^[\s_]*(.+?)[\s_]*$/, '$1'); // on mobile - random strings of `_ _` are getting added at the beginning and end of the title
+
 if ((filename + username).length > 150) {
     filename = filename.slice(0, 147 - username.length) + '...'; // trim long filenames
 }
