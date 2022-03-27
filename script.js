@@ -8,7 +8,7 @@ function escapeHtml(text) {
 
 /* build filename */
 let filename = getTextContent(".jp-title");
-const username = getTextContent("[href*='soundgasm.net/u/']"); // username field has no identifiers - find based on link itself
+const username = window.location.pathname.match(/\/u\/([^/]+)\//)[1]; // find username based on URL itself
 
 filename = filename.replace(/^[\s_]*(.+?)[\s_]*$/, '$1'); // on mobile - random strings of `_ _` are getting added at the beginning and end of the title
 
