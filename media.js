@@ -18,5 +18,5 @@ if (filename) {
     document.querySelector('.download-node').click();
 
     // close window after download prompt has likely opened
-    setTimeout(() => window.close(), 250);
+    setTimeout(() => window.close(), 400);
 }
